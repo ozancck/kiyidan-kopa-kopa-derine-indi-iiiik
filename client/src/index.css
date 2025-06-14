@@ -1,134 +1,391 @@
-body {
+/* ===== DESIGN SYSTEM - SKYVOYAGE ===== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables - Design Tokens */
+:root {
+  /* Colors */
+  --primary-50: #f0f4ff;
+  --primary-100: #e0e9ff;
+  --primary-200: #c7d5ff;
+  --primary-300: #a5b4fc;
+  --primary-400: #818cf8;
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-800: #3730a3;
+  --primary-900: #312e81;
+
+  --secondary-50: #fdf2f8;
+  --secondary-100: #fce7f3;
+  --secondary-200: #fbcfe8;
+  --secondary-300: #f9a8d4;
+  --secondary-400: #f472b6;
+  --secondary-500: #ec4899;
+  --secondary-600: #db2777;
+  --secondary-700: #be185d;
+  --secondary-800: #9d174d;
+  --secondary-900: #831843;
+
+  --success-400: #4ade80;
+  --success-500: #22c55e;
+  --success-600: #16a34a;
+
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+
+  --error-400: #f87171;
+  --error-500: #ef4444;
+  --error-600: #dc2626;
+
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Typography */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1rem;     /* 16px */
+  --radius-xl: 1.5rem;   /* 24px */
+  --radius-2xl: 2rem;    /* 32px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+
+  /* Z-Index */
+  --z-dropdown: 100;
+  --z-modal: 200;
+  --z-tooltip: 300;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--gray-900);
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa;
 }
 
-.flight-card {
-  transition: transform 0.3s;
-  margin-bottom: 20px;
+/* Container with glassmorphism */
+.container,
+.container-fluid {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: var(--radius-2xl) !important;
+  margin-top: var(--space-6) !important;
+  margin-bottom: var(--space-6) !important;
+  padding: var(--space-8) !important;
+  box-shadow: var(--shadow-xl) !important;
 }
 
-.flight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-4);
+  color: var(--gray-900);
 }
 
-.city-row {
-  margin-bottom: 10px;
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--gray-700);
 }
 
-.brand-logo {
-  font-weight: bold;
-  color: #0d6efd;
+/* ===== COMPONENT STYLES ===== */
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--shadow-lg) !important;
+  transition: var(--transition-normal) !important;
+  overflow: hidden !important;
+  height: fit-content !important;
 }
 
-.ticket-info {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin-top: 20px;
-  background-color: white;
+.card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-2xl) !important;
 }
 
-.ticket-header {
-  background-color: #0d6efd;
-  color: white;
-  padding: 10px;
-  border-radius: 5px 5px 0 0;
+.card-body {
+  padding: var(--space-8) !important;
 }
 
-.admin-sidebar {
-  min-height: calc(100vh - 56px);
-  background-color: #343a40;
-  padding-top: 20px;
+/* Buttons - Unified Height and Styling */
+.btn {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  padding: var(--space-4) var(--space-6) !important;
+  border-radius: var(--radius-lg) !important;
+  border: none !important;
+  transition: var(--transition-normal) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--space-2) !important;
+  min-height: 48px !important; /* Unified height */
+  text-decoration: none !important;
+  cursor: pointer !important;
 }
 
-.admin-sidebar a {
-  color: #ddd;
-  padding: 10px 15px;
-  display: block;
-  text-decoration: none;
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700)) !important;
+  color: white !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
-.admin-sidebar a:hover {
-  background-color: #495057;
-  color: white;
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-700), var(--primary-800)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: white !important;
 }
 
-.admin-sidebar .active {
-  background-color: #0d6efd;
-  color: white;
-}
-.flight-search-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 60px 0;
-  margin-bottom: 30px;
+.btn-secondary {
+  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)) !important;
+  color: white !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
-.admin-card {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: none;
-  border-radius: 10px;
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--secondary-600), var(--secondary-700)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: white !important;
 }
 
-.ticket-confirmation {
-  background: linear-gradient(45deg, #28a745, #20c997);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 20px;
+.btn-success {
+  background: linear-gradient(135deg, var(--success-500), var(--success-600)) !important;
+  color: white !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
-.flight-route {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
+.btn-danger {
+  background: linear-gradient(135deg, var(--error-500), var(--error-600)) !important;
+  color: white !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
-.route-arrow {
-  margin: 0 15px;
-  color: #6c757d;
+.btn-outline-primary {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--primary-600) !important;
+  border: 2px solid var(--primary-600) !important;
 }
 
+.btn-outline-primary:hover {
+  background: var(--primary-600) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Form Controls - Unified Height and Styling */
+.form-control,
+.form-select {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: var(--font-weight-normal) !important;
+  padding: var(--space-4) var(--space-5) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: var(--radius-lg) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: var(--transition-normal) !important;
+  min-height: 48px !important; /* Unified height */
+  color: var(--gray-800) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-500) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  outline: none !important;
+}
+
+.form-control::placeholder {
+  color: var(--gray-500) !important;
+}
+
+/* Form Labels */
+.form-label {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-sm) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  color: var(--gray-800) !important;
+  margin-bottom: var(--space-2) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-2) !important;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: var(--space-4) 0 !important;
+}
+
+.navbar-brand {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-2xl) !important;
+  font-weight: var(--font-weight-extrabold) !important;
+  color: var(--primary-600) !important;
+  text-decoration: none !important;
+}
+
+.navbar-nav .nav-link {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: var(--font-weight-medium) !important;
+  color: var(--gray-700) !important;
+  padding: var(--space-3) var(--space-4) !important;
+  border-radius: var(--radius-md) !important;
+  transition: var(--transition-normal) !important;
+  text-decoration: none !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-600) !important;
+  background: rgba(99, 102, 241, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container,
+  .container-fluid {
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
+    padding: var(--space-6) !important;
+    border-radius: var(--radius-xl) !important;
+  }
+  
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+}
+
+/* Utility Classes */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--font-weight-bold);
+}
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow) !important;
+}
+
+/* Loading Spinner */
+.spinner-border {
+  color: var(--primary-500) !important;
+}
+
+/* Badges */
+.badge {
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-xs) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  padding: var(--space-2) var(--space-3) !important;
+  border-radius: var(--radius-full) !important;
+}
+
+/* Print Styles */
 @media print {
   .no-print {
     display: none !important;
   }
-  
-  .ticket-info {
-    border: 2px solid #000 !important;
-    page-break-inside: avoid;
-  }
-}
-
-.loading-spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-}
-
-.error-message {
-  text-align: center;
-  padding: 40px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #6c757d;
-}
-
-.empty-state i {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  opacity: 0.5;
 }
