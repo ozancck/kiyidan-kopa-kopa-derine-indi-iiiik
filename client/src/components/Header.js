@@ -16,31 +16,36 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar className="navbar-custom" variant="light" expand="lg" collapseOnSelect fixed="top">
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            Flight Booking
+          <Navbar.Brand as={Link} to="/" className="brand-logo d-flex align-items-center">
+            <span style={{marginRight: '10px', fontSize: '1.5rem'}}>✈️</span>
+            <span className="gradient-text">FlyTicket</span>
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/">
-                Home Page
+              <Nav.Link as={Link} to="/" className="fw-semibold mx-2">
+                <span style={{marginRight: '8px'}}>🏠</span>
+                Ana Sayfa
               </Nav.Link>
               
               {adminInfo ? (
                 <>
-                  <Nav.Link as={Link} to="/admin/dashboard">
+                  <Nav.Link as={Link} to="/admin/dashboard" className="fw-semibold mx-2">
+                    <span style={{marginRight: '8px'}}>👨‍💼</span>
                     Admin Panel
                   </Nav.Link>
-                  <Nav.Link onClick={logoutHandler} style={{ cursor: 'pointer' }}>
-                    Logout
+                  <Nav.Link onClick={logoutHandler} style={{ cursor: 'pointer' }} className="fw-semibold mx-2">
+                    <span style={{marginRight: '8px'}}>🚪</span>
+                    Çıkış Yap
                   </Nav.Link>
                 </>
               ) : (
-                <Nav.Link as={Link} to="/admin/login">
-                  Admin Login
+                <Nav.Link as={Link} to="/admin/login" className="fw-semibold mx-2">
+                  <span style={{marginRight: '8px'}}>🔐</span>
+                  Admin Girişi
                 </Nav.Link>
               )}
             </Nav>

@@ -1,5 +1,8 @@
+/* 🚀 FLYTICKET APP STYLING */
+
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,10 +25,28 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '✈️';
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #4ecdc4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.App-link:hover {
+  color: #38ef7d;
+  text-shadow: 0 0 10px rgba(56, 239, 125, 0.5);
 }
 
 @keyframes App-logo-spin {
@@ -34,5 +55,155 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* 🌟 HERO SECTION */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  animation: float 20s linear infinite;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+/* 🎨 CUSTOM CONTAINERS */
+.main-container {
+  background: transparent;
+  min-height: calc(100vh - 200px);
+  padding: 40px 0;
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px;
+  margin: 20px 0;
+  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 🔥 SPECIAL EFFECTS */
+.glow-effect {
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* 🎯 FOCUS STATES */
+*:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* 🌊 SCROLL ANIMATIONS */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🎪 LOADING STATES */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 🎨 UTILITY CLASSES */
+.bg-glass {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-custom {
+  box-shadow: 0 15px 35px rgba(31, 38, 135, 0.2) !important;
+}
+
+.border-gradient {
+  border: 2px solid transparent !important;
+  background: linear-gradient(white, white) padding-box, 
+              linear-gradient(45deg, #667eea, #764ba2) border-box !important;
+}
+
+/* 🎭 DARK MODE SUPPORT */
+@media (prefers-color-scheme: dark) {
+  .content-wrapper {
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  .form-control, .form-select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATIONS */
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .content-wrapper {
+    padding: 20px;
+    margin: 10px;
   }
 }

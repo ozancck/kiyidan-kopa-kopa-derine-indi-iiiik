@@ -17,21 +17,36 @@ import AdminRoute from './components/AdminRoute';
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="py-3">
-        <Container>
+      <div className="App" style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
+        <Header />
+        
+        <main style={{flex: 1, paddingTop: '80px'}}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/flight/:id" element={<FlightDetailPage />} />
-            <Route path="/booking/:id" element={<BookingConfirmationPage />} />
-            <Route path="/admin/login" element={<LoginPage />} />
+            <Route path="/flight/:id" element={
+              <Container style={{paddingTop: '20px'}}>
+                <FlightDetailPage />
+              </Container>
+            } />
+            <Route path="/booking/:id" element={
+              <Container style={{paddingTop: '20px'}}>
+                <BookingConfirmationPage />
+              </Container>
+            } />
+            <Route path="/admin/login" element={
+              <Container style={{paddingTop: '20px'}}>
+                <LoginPage />
+              </Container>
+            } />
             
             {/* Admin Routes */}
             <Route
               path="/admin/dashboard"
               element={
                 <AdminRoute>
-                  <AdminDashboardPage />
+                  <Container style={{paddingTop: '20px'}}>
+                    <AdminDashboardPage />
+                  </Container>
                 </AdminRoute>
               }
             />
@@ -39,7 +54,9 @@ function App() {
               path="/admin/flights"
               element={
                 <AdminRoute>
-                  <AdminFlightListPage />
+                  <Container style={{paddingTop: '20px'}}>
+                    <AdminFlightListPage />
+                  </Container>
                 </AdminRoute>
               }
             />
@@ -47,7 +64,9 @@ function App() {
               path="/admin/flights/create"
               element={
                 <AdminRoute>
-                  <AdminFlightCreatePage />
+                  <Container style={{paddingTop: '20px'}}>
+                    <AdminFlightCreatePage />
+                  </Container>
                 </AdminRoute>
               }
             />
@@ -55,7 +74,9 @@ function App() {
               path="/admin/flights/:id/edit"
               element={
                 <AdminRoute>
-                  <AdminFlightEditPage />
+                  <Container style={{paddingTop: '20px'}}>
+                    <AdminFlightEditPage />
+                  </Container>
                 </AdminRoute>
               }
             />
@@ -63,14 +84,17 @@ function App() {
               path="/admin/tickets"
               element={
                 <AdminRoute>
-                  <AdminTicketListPage />
+                  <Container style={{paddingTop: '20px'}}>
+                    <AdminTicketListPage />
+                  </Container>
                 </AdminRoute>
               }
             />
           </Routes>
-        </Container>
-      </main>
-      <Footer />
+        </main>
+        
+        <Footer />
+      </div>
     </Router>
   );
 }
