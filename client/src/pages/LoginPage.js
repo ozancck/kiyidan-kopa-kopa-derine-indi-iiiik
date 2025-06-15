@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
-import { login } from '../services/adminService';
+import { adminLogin } from '../services/adminService';
 import FormContainer from '../components/FormContainer';
 
 const LoginPage = () => {
@@ -69,7 +69,7 @@ const LoginPage = () => {
             <Form.Control
               type="email"
               name="email"
-         
+              value={formData.email}
               onChange={handleChange}
               placeholder="admin@skyvoyage.com"
               required

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-import { bookTicket } from '../services/ticketService';
+import { createTicket } from '../services/ticketService';
 import Message from '../components/Message';
 
 const BookingConfirmationPage = () => {
@@ -51,18 +51,13 @@ const BookingConfirmationPage = () => {
         specialRequests: bookingData.specialRequests
       };
 
-      await bookTicket(ticketData);
+      await createTicket(ticketData);
       setSuccess(true);
       setLoading(false);
-    }  catch (error) {
-  // Sunucudan gelen spesifik bir hata mesajı var mı diye kontrol et
-  const message =
-    (error.response && error.response.data && error.response.data.message) ||
-    'Rezervasyon oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.';
-
-  setError(message); // Kullanıcıya daha anlamlı bir hata göster
-  setLoading(false);
-}
+    } catch (error) {
+      setError('Rezervasyon oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
+      setLoading(false);
+    }
   };
 
   const formatTime = (dateString) => {
