@@ -77,7 +77,7 @@ const BookingConfirmationPage = () => {
   
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
       minHeight: '100vh',
       paddingTop: '40px',
       paddingBottom: '40px'
@@ -109,10 +109,10 @@ const BookingConfirmationPage = () => {
             {/* Success Header */}
             <div className="text-center mb-5">
               <div style={{fontSize: '5rem', marginBottom: '20px'}} className="floating">🎉</div>
-              <h1 className="text-white fw-bold mb-3">
+              <h1 style={{color: '#f8fafc'}} className="fw-bold mb-3">
                 Tebrikler! Rezervasyonunuz Tamamlandı
               </h1>
-              <p className="text-white opacity-75 fs-5">
+              <p style={{color: '#cbd5e1', opacity: 0.8}} className="fs-5">
                 <span style={{marginRight: '8px'}}>✅</span>
                 Biletiniz başarıyla rezerve edildi
               </p>
@@ -172,10 +172,11 @@ const BookingConfirmationPage = () => {
                 }}>
                   {/* Ticket Header */}
                   <div className="ticket-header text-center" style={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    color: 'white',
+                    background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                    color: '#f8fafc',
                     padding: '30px',
-                    position: 'relative'
+                    position: 'relative',
+                    border: '1px solid rgba(71, 85, 105, 0.3)'
                   }}>
                     <div style={{
                       position: 'absolute',

@@ -93,7 +93,7 @@ const FlightDetailPage = () => {
   
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
       minHeight: '100vh',
       paddingTop: '40px',
       paddingBottom: '40px'
@@ -124,11 +124,11 @@ const FlightDetailPage = () => {
           <>
             {/* Flight Header */}
             <div className="text-center mb-5">
-              <h1 className="text-white fw-bold mb-3">
+              <h1 style={{color: '#f8fafc'}} className="fw-bold mb-3">
                 <span style={{marginRight: '15px', fontSize: '3rem'}}>✈️</span>
                 Uçuş Detayları
               </h1>
-              <p className="text-white opacity-75 fs-5">
+              <p style={{color: '#cbd5e1', opacity: 0.8}} className="fs-5">
                 <span style={{marginRight: '8px'}}>🎫</span>
                 Rezervasyon işleminizi tamamlayın
               </p>
@@ -144,10 +144,11 @@ const FlightDetailPage = () => {
                   boxShadow: '0 20px 40px rgba(31, 38, 135, 0.2)'
                 }}>
                   <Card.Header className="border-0 text-center" style={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    color: 'white',
+                    background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                    color: '#f8fafc',
                     borderRadius: '25px 25px 0 0',
-                    padding: '25px'
+                    padding: '25px',
+                    border: '1px solid rgba(71, 85, 105, 0.3)'
                   }}>
                     <h4 className="mb-0 fw-bold">
                       <span style={{marginRight: '10px'}}>📋</span>
@@ -158,7 +159,7 @@ const FlightDetailPage = () => {
                     {/* Flight Number & Price */}
                     <Row className="mb-4">
                       <Col md={6}>
-                        <div className="text-center p-3 rounded-4" style={{background: 'rgba(102, 126, 234, 0.1)'}}>
+                        <div className="text-center p-3 rounded-4" style={{background: 'rgba(6, 182, 212, 0.1)', border: '1px solid rgba(6, 182, 212, 0.2)'}}>
                           <h6 className="text-muted mb-2">
                             <span style={{marginRight: '8px'}}>🔢</span>
                             Uçuş Numarası
@@ -167,7 +168,7 @@ const FlightDetailPage = () => {
                         </div>
                       </Col>
                       <Col md={6}>
-                        <div className="text-center p-3 rounded-4" style={{background: 'rgba(40, 167, 69, 0.1)'}}>
+                        <div className="text-center p-3 rounded-4" style={{background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)'}}>
                           <h6 className="text-muted mb-2">
                             <span style={{marginRight: '8px'}}>💰</span>
                             Fiyat

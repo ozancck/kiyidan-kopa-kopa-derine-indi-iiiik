@@ -74,7 +74,7 @@ const LoginPage = () => {
 
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
       minHeight: '100vh',
       paddingTop: '80px',
       paddingBottom: '40px'
@@ -85,8 +85,8 @@ const LoginPage = () => {
             {/* Header */}
             <div className="text-center mb-5">
               <div style={{fontSize: '4rem', marginBottom: '20px'}} className="floating">🔐</div>
-              <h1 className="text-white fw-bold mb-3">Admin Girişi</h1>
-              <p className="text-white opacity-75">
+              <h1 style={{color: '#f8fafc'}} className="fw-bold mb-3">Admin Girişi</h1>
+              <p style={{color: '#cbd5e1', opacity: 0.8}}>
                 <span style={{marginRight: '8px'}}>👨‍💼</span>
                 Yönetim paneline erişim
               </p>
@@ -100,9 +100,10 @@ const LoginPage = () => {
               overflow: 'hidden'
             }}>
               <Card.Header className="border-0 text-center" style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                padding: '25px'
+                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                color: '#f8fafc',
+                padding: '25px',
+                border: '1px solid rgba(71, 85, 105, 0.3)'
               }}>
                 <h3 className="mb-0 fw-bold">
                   <span style={{marginRight: '10px'}}>🛡️</span>
@@ -152,14 +153,15 @@ const LoginPage = () => {
                     size="lg"
                     className="w-100"
                     style={{
-                      background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-                      border: 'none',
-                      borderRadius: '15px',
-                      padding: '15px',
-                      fontWeight: '600',
-                      fontSize: '1.1rem',
-                      boxShadow: '0 10px 25px rgba(17, 153, 142, 0.3)'
-                    }}
+                    background: 'linear-gradient(135deg, #065f46 0%, #047857 100%)',
+                    border: '1px solid rgba(16, 185, 129, 0.5)',
+                    borderRadius: '15px',
+                    padding: '15px',
+                    fontWeight: '600',
+                    fontSize: '1.1rem',
+                    boxShadow: '0 10px 25px rgba(5, 150, 105, 0.2)',
+                      color: '#a7f3d0'
+                      }}
                   >
                     {loading ? (
                       <>
@@ -234,14 +236,15 @@ const LoginPage = () => {
                     className="w-100"
                     disabled={loading}
                     style={{
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                      border: 'none',
-                      borderRadius: '15px',
-                      padding: '15px',
-                      fontWeight: '600',
-                      fontSize: '1.1rem',
-                      boxShadow: '0 10px 25px rgba(102, 126, 234, 0.3)'
-                    }}
+                    background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                    border: '1px solid rgba(6, 182, 212, 0.5)',
+                    borderRadius: '15px',
+                    padding: '15px',
+                    fontWeight: '600',
+                    fontSize: '1.1rem',
+                    boxShadow: '0 10px 25px rgba(6, 182, 212, 0.2)',
+                      color: '#67e8f9'
+                      }}
                   >
                     {loading ? (
                       <>
